@@ -13,8 +13,6 @@ export default ({ channels }) => {
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   );
 
-  console.log(channels);
-
   render(
     <Provider store={store}>
       <App />
