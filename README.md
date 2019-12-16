@@ -1,4 +1,4 @@
-# chatty
+# [chatty](https://chatty-adenisov.herokuapp.com/)
 
 web-based slack-like chat application.
 
