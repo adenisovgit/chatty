@@ -1,17 +1,17 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 import reducers from './reducers';
 import App from './components/app';
 
-export default ({ channels }) => {
-  const store = createStore(
-    reducers,
-    { channels },
-    // eslint-disable-next-line no-underscore-dangle
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  );
+export default (gon) => {
+  const { channels, messages } = gon;
+  const activeChannel = channels[0].id;
+  const store = configureStore({
+    reducer: reducers,
+    preloadedState: { channels, messages, activeChannel },
+  });
 
   render(
     <Provider store={store}>
