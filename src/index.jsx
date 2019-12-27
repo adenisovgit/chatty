@@ -12,7 +12,7 @@ export default (gon) => {
     reducer: reducers,
     preloadedState: { channels, messages, activeChannel },
   });
-
+  console.log('+++++++++++store.getState()', store.getState());
   render(
     <Provider store={store}>
       <App />

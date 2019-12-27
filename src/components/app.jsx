@@ -1,19 +1,27 @@
 import React from 'react';
 import cn from 'classnames';
+import { connect } from 'react-redux';
+
 
 // import { addChannel, removeChannel } from '../actions';
 
-import Channels from './channels';
+import Channels from '../features/channels/channels';
 import Input from './input';
+
+import { addChannel } from '../features/channels/channelsSlice';
+
+const mapDispatchToProps = { addChannel };
 
 class App extends React.PureComponent {
   render() {
-    const firstColCN = cn('col-3 py-md-3 bg-light');
-    const secondColCN = cn('col-7 py-md-3 pl-md-5 bd-content bg-light');
-    const thirdColCN = cn('col-2 bg-light py-md-3');
+    const firstColCN = cn('col-3 py-md-3 bg-light m-1');
+    const secondColCN = cn('col-7 py-md-3 pl-md-5 bd-content bg-light m-1');
+    const thirdColCN = cn('col-2 bg-light py-md-3 d-none d-lg-block m-1');
+    // eslint-disable-next-line no-shadow
+    const { addChannel } = this.props;
     return (
-      <div className="container-fluid ">
-        <div className="row flex-xl-nowrap m-4">
+      <div className="container-fluid">
+        <div className="row flex-xl-nowrap">
           <div className={firstColCN}>
             <Input placeholder="Поиск канала" />
           </div>
@@ -24,7 +32,7 @@ class App extends React.PureComponent {
             <Input placeholder="Пользователь" />
           </div>
         </div>
-        <div className="row flex-xl-nowrap m-4">
+        <div className="row flex-xl-nowrap ">
           <div className={firstColCN}>
             <Channels />
           </div>
@@ -35,9 +43,15 @@ class App extends React.PureComponent {
             {/* users */}
           </div>
         </div>
-        <div className="row flex-xl-nowrap m-4">
+        <div className="row flex-xl-nowrap ">
           <div className={firstColCN}>
-            <Input placeholder="Добавить канал" />
+            <button
+              type="button"
+              className="btn btn-primary btn-block"
+              onClick={() => addChannel({ id: 5, name: 'main', removable: false })}
+            >
+              Добавить канал
+            </button>
           </div>
           <div className={secondColCN}>
             <Input placeholder="Новое сообщение" />
@@ -49,4 +63,4 @@ class App extends React.PureComponent {
   }
 }
 
-export default App;
+export default connect(null, mapDispatchToProps)(App);
