@@ -1,6 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import { connect } from 'react-redux';
+import { withTranslation } from 'react-i18next';
 
 
 // import { addChannel, removeChannel } from '../actions';
@@ -18,7 +19,7 @@ class App extends React.PureComponent {
     const secondColCN = cn('col-7 py-md-3 pl-md-5 bd-content bg-light m-1');
     const thirdColCN = cn('col-2 bg-light py-md-3 d-none d-lg-block m-1');
     // eslint-disable-next-line no-shadow
-    const { addChannel } = this.props;
+    const { addChannel, t } = this.props;
     return (
       <div className="container-fluid">
         <div className="row flex-xl-nowrap">
@@ -50,7 +51,7 @@ class App extends React.PureComponent {
               className="btn btn-primary btn-block"
               onClick={() => addChannel({ id: 5, name: 'main', removable: false })}
             >
-              Добавить канал
+              {t('addchannel')}
             </button>
           </div>
           <div className={secondColCN}>
@@ -63,4 +64,4 @@ class App extends React.PureComponent {
   }
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(withTranslation()(App));
