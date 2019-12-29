@@ -12,9 +12,12 @@ import './i18n';
 export default (gon) => {
   const { channels, messages } = gon;
   const activeChannel = channels[0].id;
+  const processingChannel = { loading: false, error: null };
   const store = configureStore({
     reducer: reducers,
-    preloadedState: { channels, messages, activeChannel },
+    preloadedState: {
+      channels, messages, activeChannel, processingChannel,
+    },
   });
   render(
     <Provider store={store}>

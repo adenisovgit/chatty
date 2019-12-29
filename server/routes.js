@@ -7,8 +7,12 @@ const buildState = (defaultState) => {
   const randomChannelId = getNextId();
   const state = {
     channels: [
-      { id: generalChannelId, name: 'general', removable: false, style: 'primary' },
-      { id: randomChannelId, name: 'random', removable: false, style: 'info' },
+      {
+        id: generalChannelId, name: 'general', removable: false, style: 'primary',
+      },
+      {
+        id: randomChannelId, name: 'random', removable: false, style: 'info',
+      },
     ],
     messages: [],
     currentChannelId: generalChannelId,
@@ -47,6 +51,7 @@ export default (app, io, defaultState = {}) => {
     })
     .post('/api/v1/channels', (req, reply) => {
       const { data: { attributes: { name } } } = req.body;
+      console.log('!!!!!!req.body', req.body);
       const channel = {
         name,
         removable: true,
@@ -61,7 +66,7 @@ export default (app, io, defaultState = {}) => {
           attributes: channel,
         },
       };
-
+      console.log(state);
       reply.send(data);
       io.emit('newChannel', data);
     })

@@ -8,7 +8,7 @@ import cn from 'classnames';
 
 import Channels from '../features/channels/channels';
 import Input from './input';
-import NewChannelModal from '../features/newChannel/newChannelModal';
+import NewChannelModal from '../features/channels/newChannelModal';
 
 // import { addChannel } from '../features/channels/channelsSlice';
 

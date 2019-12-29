@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 // import { connect } from 'react-redux';
 // import { withTranslation } from 'react-i18next';
 import { useTranslation } from 'react-i18next';
+import { addNewChannel } from './processingChannelSlice';
 
 // import { addChannel } from '../features/channels/channelsSlice';
 
@@ -22,7 +23,7 @@ function NewChannelModal() {
   const { t } = useTranslation();
 
   const processAddChannel = () => {
-    dispatch({ type: 'channels/addChannel', payload: { id: 5, name: 'main', removable: false } });
+    dispatch(addNewChannel('main'));
     handleClose();
   };
 
