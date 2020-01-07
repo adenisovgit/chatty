@@ -1,7 +1,10 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+
+import { actions as uiActions } from '../ui/uiSlice';
 import routes from '../../routes';
+
 
 const initialState = {
   loading: false,
@@ -13,10 +16,9 @@ const processingChannelSlice = createSlice({
   initialState,
   reducers: {
     addChannelStart: () => ({ loading: true, error: null }),
-    addChannelSuccess(state, action) {
+    addChannelSuccess(state) {
       // const { comments, issueId } = action.payload
       // state.commentsByIssue[issueId] = comments
-      console.log('++++++++addChannelSuccess action', action);
       state.loading = false;
       state.error = null;
     },
@@ -32,6 +34,7 @@ export const {
   addChannelSuccess,
   addChannelFailure,
 } = processingChannelSlice.actions;
+export const { actions } = processingChannelSlice;
 export default processingChannelSlice.reducer;
 
 
@@ -41,6 +44,7 @@ export const addNewChannel = (channelName) => async (dispatch) => {
     const channel = { data: { attributes: { name: channelName } } };
     const { data } = await axios.post(routes.channelsPath(), channel);
     dispatch(addChannelSuccess(data));
+    dispatch(uiActions.setToast({ toastText: 'channeladded', toastShow: true }));
   } catch (err) {
     dispatch(addChannelFailure(err));
   }

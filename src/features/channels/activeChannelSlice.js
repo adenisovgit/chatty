@@ -9,5 +9,5 @@ const activeChannelSlice = createSlice({
 });
 
 
-export const { setActiveChannel } = activeChannelSlice.actions;
+export const { actions } = activeChannelSlice;
 export default activeChannelSlice.reducer;

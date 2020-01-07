@@ -13,10 +13,11 @@ export default (gon) => {
   const { channels, messages } = gon;
   const activeChannel = channels[0].id;
   const processingChannel = { loading: false, error: null };
+  const ui = { toastText: '', toastShow: false };
   const store = configureStore({
     reducer: reducers,
     preloadedState: {
-      channels, messages, activeChannel, processingChannel,
+      channels, messages, activeChannel, processingChannel, ui,
     },
   });
   render(

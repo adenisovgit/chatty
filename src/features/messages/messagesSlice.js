@@ -9,5 +9,5 @@ const messagesSlice = createSlice({
   },
 });
 
-export const { addMessage, removeMessage } = messagesSlice.actions;
+export const { actions } = messagesSlice;
 export default messagesSlice.reducer;
