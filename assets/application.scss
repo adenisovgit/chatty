@@ -1,1 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
+
+.delete-mark:after {
+  content: '×'; /* UTF-8 symbol */
+}
