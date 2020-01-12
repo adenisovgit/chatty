@@ -26,6 +26,12 @@ class App extends React.PureComponent {
     // const { addChannel, t } = this.props;
     return (
       <div className="container-fluid">
+        <Toast className="zindex-modal" show={toastShow}>
+          <Toast.Header>
+            <strong className="mr-auto">Bootstrap</strong>
+          </Toast.Header>
+          <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
+        </Toast>
         <div className="row flex-xl-nowrap">
           <div className={firstColCN}>
             <Input placeholder="Поиск канала" />
@@ -57,13 +63,6 @@ class App extends React.PureComponent {
           </div>
           <div className={thirdColCN} />
         </div>
-        <Toast show={toastShow}>
-          <Toast.Header>
-            <strong className="mr-auto">Bootstrap</strong>
-            <small>11 mins ago</small>
-          </Toast.Header>
-          <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
-        </Toast>
       </div>
     );
   }

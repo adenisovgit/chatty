@@ -20,15 +20,13 @@ class Channels extends React.PureComponent {
           id, name, style, removable,
         }) => (
           <ListGroup.Item
-            // as="button"
-            // type="button"
             key={id}
             variant={style}
             className={id === activeChannel ? 'active' : ''}
             onClick={() => setActiveChannel(id)}
           >
             {name}
-            {!removable && (
+            {removable && (
             <button type="button" className="close float-right" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>

@@ -3,7 +3,8 @@
     "translation": {
       "cancel": "Cancel",
       "addchannel": "Add channel",
-      "addmessage": "Add message"
+      "addmessage": "Add message",
+      "enternewchannelname": "Please, enter new channel name"
     }
   },
   "ru": {

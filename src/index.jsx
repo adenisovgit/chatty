@@ -1,12 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import io from 'socket.io-client';
 
 import reducers, { actions } from './reducers';
 import App from './components/app';
-
 
 import './i18n';
 
@@ -17,6 +16,7 @@ export default (gon) => {
   const ui = { toastText: '', toastShow: false };
   const store = configureStore({
     reducer: reducers,
+    middleware: [...getDefaultMiddleware()],
     preloadedState: {
       channels, messages, activeChannel, processingChannel, ui,
     },

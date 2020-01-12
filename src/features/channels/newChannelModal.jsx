@@ -2,31 +2,23 @@ import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { useDispatch } from 'react-redux';
-// import { connect } from 'react-redux';
-// import { withTranslation } from 'react-i18next';
+import { useForm } from 'react-hook-form';
+
 import { useTranslation } from 'react-i18next';
 import { addNewChannel } from './processingChannelSlice';
 
-// import { addChannel } from '../features/channels/channelsSlice';
-
-// const mapDispatchToProps = { addChannel };
-
 function NewChannelModal() {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
   const dispatch = useDispatch();
-
-  // const { addChannel, t } = this.props;
   const { t } = useTranslation();
 
-  const processAddChannel = () => {
-    dispatch(addNewChannel('main'));
+  const { register, handleSubmit/* , errors */ } = useForm();
+  const onSubmit = ({ name }) => {
+    dispatch(addNewChannel(name));
     handleClose();
   };
-
 
   return (
     <>
@@ -36,21 +28,30 @@ function NewChannelModal() {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>{t('addchannel')}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            {t('cancel')}
-          </Button>
-          <Button variant="primary" onClick={processAddChannel}>
-            {t('addchannel')}
-          </Button>
-        </Modal.Footer>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Modal.Body>
+            <input
+              className="form-control"
+              type="text"
+              placeholder={t('enternewchannelname')}
+              name="name"
+              ref={register({ required: true })}
+            />
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              {t('cancel')}
+            </Button>
+            <Button variant="primary" onClick={handleSubmit(onSubmit)}>
+              {t('addchannel')}
+            </Button>
+          </Modal.Footer>
+        </form>
       </Modal>
     </>
   );
 }
-
 
 export default NewChannelModal;
