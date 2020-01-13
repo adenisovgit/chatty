@@ -22,16 +22,8 @@ class App extends React.PureComponent {
     const firstColCN = cn('col-3 py-md-3 bg-light m-1');
     const secondColCN = cn('col-7 py-md-3 pl-md-5 bd-content bg-light m-1');
     const thirdColCN = cn('col-2 bg-light py-md-3 d-none d-lg-block m-1');
-    // eslint-disable-next-line no-shadow
-    // const { addChannel, t } = this.props;
     return (
       <div className="container-fluid">
-        <Toast className="zindex-modal" show={toastShow}>
-          <Toast.Header>
-            <strong className="mr-auto">Bootstrap</strong>
-          </Toast.Header>
-          <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
-        </Toast>
         <div className="row flex-xl-nowrap">
           <div className={firstColCN}>
             <Input placeholder="Поиск канала" />
@@ -63,6 +55,12 @@ class App extends React.PureComponent {
           </div>
           <div className={thirdColCN} />
         </div>
+        <Toast className="zindex-modal" show={toastShow} style={{ zIndex: '9999999999' }}>
+          <Toast.Header>
+            <strong className="mr-auto">Bootstrap</strong>
+          </Toast.Header>
+          <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
+        </Toast>
       </div>
     );
   }
