@@ -13,13 +13,11 @@ import './i18n';
 export default (gon) => {
   const { channels, messages } = gon;
   const activeChannel = channels[0].id;
-  const processingChannel = { loading: false, error: null };
-  const ui = { notificationText: '', notificationShow: false };
   const store = configureStore({
     reducer: reducers,
     middleware: [...getDefaultMiddleware()],
     preloadedState: {
-      channels, messages, activeChannel, processingChannel, ui,
+      channels, messages, activeChannel,
     },
   });
 

@@ -17,14 +17,13 @@ const mapStateToProps = ({ ui }) => {
 @connect(mapStateToProps)
 class App extends React.PureComponent {
   render() {
-    const { ui: { notificationShow } } = this.props;
-
+    const { ui: { notificationShow, notificationType, message } } = this.props;
     const firstColCN = cn('col-3 py-md-3 bg-light m-1');
     const secondColCN = cn('col-7 py-md-3 pl-md-5 bd-content bg-light m-1');
     const thirdColCN = cn('col-2 bg-light py-md-3 d-none d-lg-block m-1');
     return (
       <div className="container-fluid">
-        <Notification show={notificationShow} />
+        <Notification show={notificationShow} type={notificationType} message={message} />
         <div className="row flex-xl-nowrap">
           <div className={firstColCN}>
             <Input placeholder="Поиск канала" />

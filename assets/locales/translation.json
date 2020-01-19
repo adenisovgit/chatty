@@ -4,7 +4,10 @@
       "cancel": "Cancel",
       "addchannel": "Add channel",
       "addmessage": "Add message",
-      "enternewchannelname": "Please, enter new channel name"
+      "enternewchannelname": "Please, enter new channel name",
+      "channeladded": "Channel <strong>{{message}}</strong> added",
+      "channeladding": "Adding <strong>{{message}}</strong> channel",
+      "channeladdingerror": "Channel <strong>{{message}}</strong> not added, check internet connection"
     }
   },
   "ru": {

@@ -40,12 +40,20 @@ export default processingChannelSlice.reducer;
 
 export const addNewChannel = (channelName) => async (dispatch) => {
   try {
+    dispatch(uiActions.setNotification(
+      { notificationType: 'channelAdding', notificationShow: true, message: channelName },
+    ));
     dispatch(addChannelStart());
     const channel = { data: { attributes: { name: channelName } } };
     const { data } = await axios.post(routes.channelsPath(), channel);
     dispatch(addChannelSuccess(data));
-    dispatch(uiActions.setNotification({ notificationType: 'channeladded', notificationShow: true }));
+    dispatch(uiActions.setNotification(
+      { notificationType: 'channelAdded', notificationShow: true, message: channelName },
+    ));
   } catch (err) {
     dispatch(addChannelFailure(err));
+    dispatch(uiActions.setNotification(
+      { notificationType: 'channelAddingError', notificationShow: true, message: channelName },
+    ));
   }
 };

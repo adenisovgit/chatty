@@ -1,10 +1,10 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
-import Toast from 'react-bootstrap/Toast';
+import Alert from 'react-bootstrap/Alert';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 
 import connect from '../../connect';
-
 
 export const notifications = {
   channelAdding: { text: 'channeladding', status: 'secondary' },
@@ -13,25 +13,32 @@ export const notifications = {
 };
 
 function Notification(props) {
-  const { show, closeNotification } = props;
+  const {
+    show, type, message, closeNotification,
+  } = props;
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const handleClose = () => dispatch(closeNotification());
+  if (show) setTimeout(handleClose, 5000);
   return (
-    <Toast
-      onClose={() => dispatch(closeNotification())}
-      show={show}
+    <Alert
       className="zindex-modal float-right"
       style={{
         zIndex: '9999999999', position: 'absolute', top: 0, right: 0,
       }}
-      delay={3000}
-      autohide
+      show={show}
+      variant={notifications[type] && notifications[type].status}
+      onClose={handleClose}
+      dismissible
     >
-      <Toast.Header>
-        <strong className="mr-auto">{t('Bootstrap')}</strong>
-      </Toast.Header>
-      <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
-    </Toast>
+      <Alert.Heading>
+        <div dangerouslySetInnerHTML={{
+          __html: t(notifications[type]
+            && notifications[type].text, { message }),
+        }}
+        />
+      </Alert.Heading>
+    </Alert>
   );
 }
 
