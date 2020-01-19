@@ -2,9 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const uiSlice = createSlice({
   name: 'ui',
-  initialState: { toastText: '', toastShow: false },
+  initialState: { notificationType: '', notificationShow: false },
   reducers: {
-    setToast: (_state, action) => action.payload,
+    setNotification: (_state, action) => action.payload,
+    closeNotification: () => ({ notificationType: '', notificationShow: false }),
   },
 });
 

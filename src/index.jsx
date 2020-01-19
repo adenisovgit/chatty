@@ -14,7 +14,7 @@ export default (gon) => {
   const { channels, messages } = gon;
   const activeChannel = channels[0].id;
   const processingChannel = { loading: false, error: null };
-  const ui = { toastText: '', toastShow: false };
+  const ui = { notificationText: '', notificationShow: false };
   const store = configureStore({
     reducer: reducers,
     middleware: [...getDefaultMiddleware()],

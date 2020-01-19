@@ -44,7 +44,7 @@ export const addNewChannel = (channelName) => async (dispatch) => {
     const channel = { data: { attributes: { name: channelName } } };
     const { data } = await axios.post(routes.channelsPath(), channel);
     dispatch(addChannelSuccess(data));
-    dispatch(uiActions.setToast({ toastText: 'channeladded', toastShow: true }));
+    dispatch(uiActions.setNotification({ notificationType: 'channeladded', notificationShow: true }));
   } catch (err) {
     dispatch(addChannelFailure(err));
   }

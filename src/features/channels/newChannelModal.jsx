@@ -3,8 +3,8 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-
 import { useTranslation } from 'react-i18next';
+
 import { addNewChannel } from './processingChannelSlice';
 
 function NewChannelModal() {
