@@ -17,12 +17,19 @@ const processingChannelSlice = createSlice({
   reducers: {
     addChannelStart: () => ({ loading: true, error: null }),
     addChannelSuccess(state) {
-      // const { comments, issueId } = action.payload
-      // state.commentsByIssue[issueId] = comments
       state.loading = false;
       state.error = null;
     },
     addChannelFailure(state, action) {
+      state.loading = false;
+      state.error = action.payload;
+    },
+    removeChannelStart: () => ({ loading: true, error: null }),
+    removeChannelSuccess(state) {
+      state.loading = false;
+      state.error = null;
+    },
+    removeChannelFailure(state, action) {
       state.loading = false;
       state.error = action.payload;
     },

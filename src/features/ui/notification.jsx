@@ -20,24 +20,18 @@ function Notification(props) {
   const dispatch = useDispatch();
   const handleClose = () => dispatch(closeNotification());
   if (show) setTimeout(handleClose, 5000);
-  return (
+  return show && notifications[type] && (
     <Alert
       className="zindex-modal float-right"
       style={{
         zIndex: '9999999999', position: 'absolute', top: 0, right: 0,
       }}
       show={show}
-      variant={notifications[type] && notifications[type].status}
+      variant={notifications[type].status}
       onClose={handleClose}
       dismissible
     >
-      <Alert.Heading>
-        <div dangerouslySetInnerHTML={{
-          __html: t(notifications[type]
-            && notifications[type].text, { message }),
-        }}
-        />
-      </Alert.Heading>
+      <div dangerouslySetInnerHTML={{ __html: t(notifications[type].text, { message }) }} />
     </Alert>
   );
 }

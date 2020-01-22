@@ -27,9 +27,14 @@ class Channels extends React.PureComponent {
           >
             {name}
             {removable && (
-            <button type="button" className="close float-right" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+              <>
+                <button type="button" className="close float-right" aria-label="Delete">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <button type="button" className="close float-right" aria-label="Rename">
+                  <img className="float-right" src="assets/edit.svg" alt="" />
+                </button>
+              </>
             )}
           </ListGroup.Item>
         ))}
