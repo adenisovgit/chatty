@@ -2,6 +2,7 @@ import React from 'react';
 import { ListGroup } from 'react-bootstrap';
 import connect from '../../connect';
 
+import Channel from './channel';
 
 const mapStateToProps = ({ channels, activeChannel, ui }) => {
   const props = { channels, activeChannel, ui };
@@ -19,24 +20,15 @@ class Channels extends React.PureComponent {
         {channels.map(({
           id, name, style, removable,
         }) => (
-          <ListGroup.Item
+          <Channel
             key={id}
+            id={id}
             variant={style}
-            className={id === activeChannel ? 'active' : ''}
-            onClick={() => setActiveChannel(id)}
-          >
-            {name}
-            {removable && (
-              <>
-                <button type="button" className="close float-right" aria-label="Delete">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                <button type="button" className="close float-right" aria-label="Rename">
-                  <img className="float-right" src="assets/edit.svg" alt="" />
-                </button>
-              </>
-            )}
-          </ListGroup.Item>
+            isActive={id === activeChannel ? 'active' : ''}
+            handleClick={() => setActiveChannel(id)}
+            name={name}
+            removable={removable}
+          />
         ))}
       </ListGroup>
     );

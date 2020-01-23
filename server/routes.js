@@ -53,9 +53,9 @@ export default (app, io, defaultState = {}) => {
       const { data: { attributes: { name } } } = req.body;
       console.log('!!!!!!req.body', req.body);
       const channel = {
+        id: getNextId(),
         name,
         removable: true,
-        id: getNextId(),
       };
       state.channels.push(channel);
       reply.code(201);
@@ -71,6 +71,7 @@ export default (app, io, defaultState = {}) => {
       io.emit('newChannel', data);
     })
     .delete('/api/v1/channels/:id', (req, reply) => {
+      console.log('!!!!!!delete', req.body);
       const channelId = Number(req.params.id);
       state.channels = state.channels.filter((c) => c.id !== channelId);
       state.messages = state.messages.filter((m) => m.channelId !== channelId);

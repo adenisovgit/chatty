@@ -40,12 +40,15 @@ export const {
   addChannelStart,
   addChannelSuccess,
   addChannelFailure,
+  removeChannelStart,
+  removeChannelSuccess,
+  removeChannelFailure,
 } = processingChannelSlice.actions;
 export const { actions } = processingChannelSlice;
 export default processingChannelSlice.reducer;
 
 
-export const addNewChannel = (channelName) => async (dispatch) => {
+export const handleAddChannel = (channelName) => async (dispatch) => {
   try {
     dispatch(uiActions.setNotification(
       { notificationType: 'channelAdding', notificationShow: true, message: channelName },
@@ -61,6 +64,26 @@ export const addNewChannel = (channelName) => async (dispatch) => {
     dispatch(addChannelFailure(err));
     dispatch(uiActions.setNotification(
       { notificationType: 'channelAddingError', notificationShow: true, message: channelName },
+    ));
+  }
+};
+
+export const handleRemoveChannel = (id, channelName) => async (dispatch) => {
+  try {
+    dispatch(uiActions.setNotification(
+      { notificationType: 'channelRemoving', notificationShow: true, message: channelName },
+    ));
+    dispatch(removeChannelStart());
+    const channel = { data: { attributes: { id } } };
+    const { data } = await axios.delete(routes.channelPath(id), channel);
+    dispatch(removeChannelSuccess(data));
+    dispatch(uiActions.setNotification(
+      { notificationType: 'channelRemoved', notificationShow: true, message: channelName },
+    ));
+  } catch (err) {
+    dispatch(removeChannelFailure(err));
+    dispatch(uiActions.setNotification(
+      { notificationType: 'channelRemovingError', notificationShow: true, message: channelName },
     ));
   }
 };

@@ -10,6 +10,9 @@ export const notifications = {
   channelAdding: { text: 'channeladding', status: 'secondary' },
   channelAdded: { text: 'channeladded', status: 'success' },
   channelAddingError: { text: 'channeladdingerror', status: 'warning' },
+  channelRemoving: { text: 'channelremoving', status: 'secondary' },
+  channelRemoved: { text: 'channelremoved', status: 'success' },
+  channelRemovingError: { text: 'channelremovingerror', status: 'warning' },
 };
 
 function Notification(props) {

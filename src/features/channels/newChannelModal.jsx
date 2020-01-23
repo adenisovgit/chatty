@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-import { addNewChannel } from './processingChannelSlice';
+import { handleAddChannel } from './processingChannelSlice';
 
 function NewChannelModal() {
   const [show, setShow] = useState(false);
@@ -16,7 +16,7 @@ function NewChannelModal() {
 
   const { register, handleSubmit/* , errors */ } = useForm();
   const onSubmit = ({ name }) => {
-    dispatch(addNewChannel(name));
+    dispatch(handleAddChannel(name));
     handleClose();
   };
 

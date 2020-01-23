@@ -7,7 +7,9 @@
       "enternewchannelname": "Please, enter new channel name",
       "channeladded": "Channel <strong>{{message}}</strong> added",
       "channeladding": "Adding <strong>{{message}}</strong> channel",
-      "channeladdingerror": "Channel <strong>{{message}}</strong> not added, check internet connection"
+      "channeladdingerror": "Channel <strong>{{message}}</strong> not added, check internet connection",
+      "renamechannel": "Rename channel",
+      "deletechannel": "Delete channel"
     }
   },
   "ru": {
