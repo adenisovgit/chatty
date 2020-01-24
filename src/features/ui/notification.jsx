@@ -25,10 +25,7 @@ function Notification(props) {
   if (show) setTimeout(handleClose, 5000);
   return show && notifications[type] && (
     <Alert
-      className="zindex-modal float-right"
-      style={{
-        zIndex: '9999999999', position: 'absolute', top: 0, right: 0,
-      }}
+      className="zindex-tooltip fixed-top"
       show={show}
       variant={notifications[type].status}
       onClose={handleClose}
