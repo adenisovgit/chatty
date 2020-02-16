@@ -28,4 +28,4 @@ class Messages extends React.PureComponent {
   }
 }
 
-export default connect(mapStateToProps)(Channels);
+export default connect(mapStateToProps)(Messages);

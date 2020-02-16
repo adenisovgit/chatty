@@ -18,9 +18,9 @@ const mapStateToProps = ({ ui }) => {
 class App extends React.PureComponent {
   render() {
     const { ui: { notificationShow, notificationType, message } } = this.props;
-    const firstColCN = cn('col-3 py-md-3 bg-light m-1');
-    const secondColCN = cn('col-7 py-md-3 pl-md-5 bd-content bg-light m-1');
-    const thirdColCN = cn('col-2 bg-light py-md-3 d-none d-lg-block m-1');
+    const firstColCN = cn('col-3 py-md-3 bg-light');
+    const secondColCN = cn('col-7 py-md-3 pl-md-5 bd-content bg-light');
+    const thirdColCN = cn('col-2 bg-light py-md-3 d-none d-lg-block');
     return (
       <div className="container-fluid">
         <Notification show={notificationShow} type={notificationType} message={message} />
