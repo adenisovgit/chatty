@@ -1,0 +1,16 @@
+.hover-button {
+  position: relative;
+}
+
+.hover-button-icons {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  bottom: 0px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.hover-button:hover > .hover-button-icons {
+  opacity: 1;
+}
