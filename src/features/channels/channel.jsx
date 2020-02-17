@@ -19,7 +19,7 @@ export default function Channel(props) {
   };
   const handleRename = (event) => {
     event.stopPropagation();
-    dispatch(handleRemoveChannel(id, name));
+    dispatch(handleRemoveChannel(id, name)); // no modalRename yet !!!!!
   };
 
   const itemCN = cn(isActive, 'hover-button');
@@ -32,9 +32,7 @@ export default function Channel(props) {
       {name}
       {removable && (
         <div className="hover-button-icons">
-          <button onClick={handleRename} className="btn" type="button" aria-label="Rename" title={t('renamechannel')}>
-            <img src="assets/edit.svg" alt="" />
-          </button>
+          <button onClick={handleRename} className="btn button-icon-rename" type="button" aria-label="Rename" title={t('renamechannel')} />
           <button onClick={handleRemove} className="btn" type="button" aria-label="Remove" title={t('removechannel')}>
             &times;
           </button>

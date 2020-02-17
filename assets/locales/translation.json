@@ -9,7 +9,11 @@
       "channeladding": "Adding <strong>{{message}}</strong> channel",
       "channeladdingerror": "Channel <strong>{{message}}</strong> not added, check internet connection",
       "renamechannel": "Rename channel",
-      "deletechannel": "Delete channel"
+      "removechannel": "Remove channel",
+      "channelremoving": "Removing <strong>{{message}}</strong> channel",
+      "channelremoved": "Channel <strong>{{message}}</strong> removed",
+      "channelrenaming": "Renaming <strong>{{message}}</strong> channel",
+      "channelrenamed": "Channel <strong>{{message}}</strong> renamed"
     }
   },
   "ru": {

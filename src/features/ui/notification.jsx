@@ -13,6 +13,9 @@ export const notifications = {
   channelRemoving: { text: 'channelremoving', status: 'secondary' },
   channelRemoved: { text: 'channelremoved', status: 'success' },
   channelRemovingError: { text: 'channelremovingerror', status: 'warning' },
+  channelRenaming: { text: 'channelrenaming', status: 'secondary' },
+  channelRenamed: { text: 'channelrenamed', status: 'success' },
+  channelRenamingError: { text: 'channelrenamingerror', status: 'warning' },
 };
 
 function Notification(props) {

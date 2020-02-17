@@ -53,7 +53,7 @@ export const handleAddChannel = (channelName) => async (dispatch) => {
     dispatch(uiActions.setNotification(
       { notificationType: 'channelAdding', notificationShow: true, message: channelName },
     ));
-    dispatch(addChannelStart());
+    dispatch(addChannelStart()); // !!!!!!! add externalReducer to process ^
     const channel = { data: { attributes: { name: channelName } } };
     const { data } = await axios.post(routes.channelsPath(), channel);
     dispatch(addChannelSuccess(data));
