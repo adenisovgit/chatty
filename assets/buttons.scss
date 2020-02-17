@@ -15,6 +15,11 @@
   opacity: 1;
 }
 
-.button-icon-rename {
-   content:url(/assets/edit.svg);
+.button-icon-rename::before {
+  content:url(./edit.svg);
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
