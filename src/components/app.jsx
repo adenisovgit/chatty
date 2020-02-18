@@ -6,7 +6,7 @@ import connect from '../connect';
 
 import Channels from '../features/channels/channels';
 import Input from './input';
-import NewChannelModal from '../features/channels/newChannelModal';
+import NewChannelButton from '../features/channels/newChannelModal';
 import Notification from '../features/ui/notification';
 
 const mapStateToProps = ({ ui }) => {
@@ -48,7 +48,7 @@ class App extends React.PureComponent {
         </div>
         <div className="row flex-xl-nowrap ">
           <div className={firstColCN}>
-            <NewChannelModal />
+            <NewChannelButton />
           </div>
           <div className={secondColCN}>
             <Input placeholder="Новое сообщение" />
