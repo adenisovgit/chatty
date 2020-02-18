@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import cn from 'classnames';
 
 import { handleRemoveChannel } from './processingChannelSlice';
+import RenameChannelButton from './renameChannelButton';
 
 export default function Channel(props) {
   const {
@@ -17,10 +18,6 @@ export default function Channel(props) {
     event.stopPropagation();
     dispatch(handleRemoveChannel(id, name));
   };
-  const handleRename = (event) => {
-    event.stopPropagation();
-    dispatch(handleRemoveChannel(id, name)); // no modalRename yet !!!!!
-  };
 
   const itemCN = cn(isActive, 'hover-button');
   return (
@@ -32,7 +29,7 @@ export default function Channel(props) {
       {name}
       {removable && (
         <div className="hover-button-icons">
-          <button onClick={handleRename} className="btn button-icon-rename" type="button" aria-label="Rename" title={t('renamechannel')} />
+          <RenameChannelButton id={id} oldName={name} />
           <button onClick={handleRemove} className="btn" type="button" aria-label="Remove" title={t('removechannel')}>
             &times;
           </button>

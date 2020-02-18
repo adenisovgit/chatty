@@ -13,7 +13,8 @@
       "channelremoving": "Removing <strong>{{message}}</strong> channel",
       "channelremoved": "Channel <strong>{{message}}</strong> removed",
       "channelrenaming": "Renaming <strong>{{message}}</strong> channel",
-      "channelrenamed": "Channel <strong>{{message}}</strong> renamed"
+      "channelrenamed": "Channel <strong>{{message}}</strong> renamed",
+      "enternewnameforchannel": "Please, enter new name for channel:"
     }
   },
   "ru": {

@@ -9,7 +9,12 @@ const channelsSlice = createSlice({
       return [...state, channel];
     },
     removeChannel: (state, action) => state.filter((t) => t.id !== action.payload.id),
-    renameChannel: (state, action) => state.filter((t) => t.id !== action.payload.id),
+    renameChannel: (state, action) => {
+      const { payload: channel } = action;
+      const channelInState = state.find((el) => el.id === channel.id);
+      channelInState.name = channel.name; // eslint-disable-line no-param-reassign
+      return state;
+    },
   },
 });
 

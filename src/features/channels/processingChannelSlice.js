@@ -33,6 +33,15 @@ const processingChannelSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
+    renameChannelStart: () => ({ loading: true, error: null }),
+    renameChannelSuccess(state) {
+      state.loading = false;
+      state.error = null;
+    },
+    renameChannelFailure(state, action) {
+      state.loading = false;
+      state.error = action.payload;
+    },
   },
 });
 
@@ -43,6 +52,9 @@ export const {
   removeChannelStart,
   removeChannelSuccess,
   removeChannelFailure,
+  renameChannelStart,
+  renameChannelSuccess,
+  renameChannelFailure,
 } = processingChannelSlice.actions;
 export const { actions } = processingChannelSlice;
 export default processingChannelSlice.reducer;
@@ -84,6 +96,26 @@ export const handleRemoveChannel = (id, channelName) => async (dispatch) => {
     dispatch(removeChannelFailure(err));
     dispatch(uiActions.setNotification(
       { notificationType: 'channelRemovingError', notificationShow: true, message: channelName },
+    ));
+  }
+};
+
+export const handleRenameChannel = (id, newName) => async (dispatch) => {
+  try {
+    dispatch(uiActions.setNotification(
+      { notificationType: 'channelRenaming', notificationShow: true, message: newName },
+    ));
+    dispatch(renameChannelStart());
+    const channel = { data: { attributes: { id, name: newName } } };
+    const { data } = await axios.patch(routes.channelPath(id), channel);
+    dispatch(renameChannelSuccess(data));
+    dispatch(uiActions.setNotification(
+      { notificationType: 'channelRenamed', notificationShow: true, message: newName },
+    ));
+  } catch (err) {
+    dispatch(renameChannelFailure(err));
+    dispatch(uiActions.setNotification(
+      { notificationType: 'channelRenamingError', notificationShow: true, message: newName },
     ));
   }
 };

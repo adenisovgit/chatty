@@ -6,7 +6,7 @@ import connect from '../connect';
 
 import Channels from '../features/channels/channels';
 import Input from './input';
-import NewChannelButton from '../features/channels/newChannelModal';
+import NewChannelButton from '../features/channels/newChannelButton';
 import Notification from '../features/ui/notification';
 
 const mapStateToProps = ({ ui }) => {
