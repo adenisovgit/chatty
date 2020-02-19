@@ -14,7 +14,7 @@ function RenameChannelButton(props) {
   const { t } = useTranslation();
 
   const onSubmit = ({ name }) => {
-    dispatch(handleRenameChannel(id, name));
+    dispatch(handleRenameChannel(id, name, oldName));
     handleClose();
   };
 

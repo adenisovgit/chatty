@@ -12,7 +12,7 @@ const channelsSlice = createSlice({
     renameChannel: (state, action) => {
       const { payload: channel } = action;
       const channelInState = state.find((el) => el.id === channel.id);
-      channelInState.name = channel.name; // eslint-disable-line no-param-reassign
+      channelInState.name = channel.name;
       return state;
     },
   },
