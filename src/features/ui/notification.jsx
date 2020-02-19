@@ -20,7 +20,7 @@ export const notifications = {
 
 function Notification(props) {
   const {
-    show, type, message, closeNotification,
+    show, type, messages: [message1, message2], closeNotification,
   } = props;
   const { t } = useTranslation();
   const dispatch = useDispatch();
@@ -34,7 +34,7 @@ function Notification(props) {
       onClose={handleClose}
       dismissible
     >
-      <div dangerouslySetInnerHTML={{ __html: t(notifications[type].text, { message }) }} />
+      <div dangerouslySetInnerHTML={{ __html: t(notifications[type].text, { message1, message2 }) }} />
     </Alert>
   );
 }

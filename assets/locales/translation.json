@@ -4,17 +4,17 @@
       "cancel": "Cancel",
       "addchannel": "Add channel",
       "addmessage": "Add message",
-      "enternewchannelname": "Please, enter new channel name",
-      "channeladded": "Channel <strong>{{message}}</strong> added",
-      "channeladding": "Adding <strong>{{message}}</strong> channel",
-      "channeladdingerror": "Channel <strong>{{message}}</strong> not added, check internet connection",
+      "enternewchannelname": "Please, enter the name for new channel:",
+      "channeladded": "Channel <strong>{{message1}}</strong> added",
+      "channeladding": "Adding <strong>{{message1}}</strong> channel",
+      "channeladdingerror": "Channel <strong>{{message1}}</strong> not added, check internet connection",
       "renamechannel": "Rename channel",
       "removechannel": "Remove channel",
-      "channelremoving": "Removing <strong>{{message}}</strong> channel",
-      "channelremoved": "Channel <strong>{{message}}</strong> removed",
-      "channelrenaming": "Renaming <strong>{{message}}</strong> channel",
-      "channelrenamed": "Channel <strong>{{message}}</strong> renamed",
-      "enternewnameforchannel": "Please, enter new name for channel:"
+      "channelremoving": "Removing <strong>{{message1}}</strong> channel",
+      "channelremoved": "Channel <strong>{{message1}}</strong> removed",
+      "channelrenaming": "Renaming <strong>{{message1}}</strong> channel",
+      "channelrenamed": "Channel <strong>{{message2}}</strong> renamed to <strong>{{message1}}</strong>",
+      "enternewnameforchannel": "Please, enter new name for the channel:"
     }
   },
   "ru": {
