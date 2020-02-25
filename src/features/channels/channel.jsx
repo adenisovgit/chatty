@@ -6,6 +6,7 @@ import cn from 'classnames';
 
 import { handleRemoveChannel } from './processingChannelSlice';
 import RenameChannelButton from './renameChannelButton';
+import RemoveChannelButton from './removeChannelButton';
 
 export default function Channel(props) {
   const {
@@ -13,11 +14,6 @@ export default function Channel(props) {
   } = props;
   const { t } = useTranslation();
   const dispatch = useDispatch();
-
-  const handleRemove = (event) => {
-    event.stopPropagation();
-    dispatch(handleRemoveChannel(id, name));
-  };
 
   const itemCN = cn(isActive, 'hover-button');
   return (
@@ -30,9 +26,7 @@ export default function Channel(props) {
       {removable && (
         <div className="hover-button-icons">
           <RenameChannelButton id={id} oldName={name} />
-          <button onClick={handleRemove} className="btn" type="button" aria-label="Remove" title={t('removechannel')}>
-            &times;
-          </button>
+          <RemoveChannelButton id={id} name={name} />
         </div>
       )}
     </ListGroup.Item>

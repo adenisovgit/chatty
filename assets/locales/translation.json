@@ -13,8 +13,10 @@
       "channelremoving": "Removing <strong>{{message1}}</strong> channel",
       "channelremoved": "Channel <strong>{{message1}}</strong> removed",
       "channelrenaming": "Renaming <strong>{{message1}}</strong> channel",
+      "channelrenamingerror": "Can't rename <strong>{{message1}}</strong> channel: \n<strong>{{message2}}</strong>",
       "channelrenamed": "Channel <strong>{{message2}}</strong> renamed to <strong>{{message1}}</strong>",
-      "enternewnameforchannel": "Please, enter new name for the channel:"
+      "renamechannelquiestion": "Please, enter new name for the channel \"{{message1}}\":",
+      "removechannelquiestion": "Do you really want to remove channel \"{{message1}}\"?"
     }
   },
   "ru": {

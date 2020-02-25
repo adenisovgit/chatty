@@ -31,7 +31,7 @@ function RenameChannelButton(props) {
         isModalVisible={isModalVisible}
         handleClose={handleClose}
         onSubmit={onSubmit}
-        title={t('renamechannel')}
+        title={t('renamechannelquiestion', { message1: oldName })}
         placeholder={oldName}
         cancelBtnText={t('cancel')}
         submitBtnText={t('renamechannel')}

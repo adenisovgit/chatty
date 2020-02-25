@@ -6,26 +6,28 @@ import { useDispatch } from 'react-redux';
 
 import connect from '../../connect';
 
+
 export const notifications = {
-  channelAdding: { text: 'channeladding', status: 'secondary' },
-  channelAdded: { text: 'channeladded', status: 'success' },
-  channelAddingError: { text: 'channeladdingerror', status: 'warning' },
-  channelRemoving: { text: 'channelremoving', status: 'secondary' },
-  channelRemoved: { text: 'channelremoved', status: 'success' },
-  channelRemovingError: { text: 'channelremovingerror', status: 'warning' },
-  channelRenaming: { text: 'channelrenaming', status: 'secondary' },
-  channelRenamed: { text: 'channelrenamed', status: 'success' },
-  channelRenamingError: { text: 'channelrenamingerror', status: 'warning' },
+  addChannelStart: { text: 'channeladding', status: 'secondary' },
+  addChannelSuccess: { text: 'channeladded', status: 'success' },
+  addChannelFailure: { text: 'channeladdingerror', status: 'warning' },
+  removeChannelStart: { text: 'channelremoving', status: 'secondary' },
+  removeChannelSuccess: { text: 'channelremoved', status: 'success' },
+  removeChannelFailure: { text: 'channelremovingerror', status: 'warning' },
+  renameChannelStart: { text: 'channelrenaming', status: 'secondary' },
+  renameChannelSuccess: { text: 'channelrenamed', status: 'success' },
+  renameChannelFailure: { text: 'channelrenamingerror', status: 'warning' },
 };
 
 function Notification(props) {
   const {
-    show, type, messages: [message1, message2], closeNotification,
+    show, type, messages: [message1, message2 = ''], closeNotification,
   } = props;
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const handleClose = () => dispatch(closeNotification());
+  const handleClose = () => dispatch(closeNotification(type));
   if (show) setTimeout(handleClose, 5000);
+  console.log('+++++++++', type, message1, message2);
   return show && notifications[type] && (
     <Alert
       className="zindex-tooltip fixed-top"
@@ -34,7 +36,11 @@ function Notification(props) {
       onClose={handleClose}
       dismissible
     >
-      <div dangerouslySetInnerHTML={{ __html: t(notifications[type].text, { message1, message2 }) }} />
+      <div dangerouslySetInnerHTML={{
+        __html:
+          t(notifications[type].text, { message1, message2 }),
+      }}
+      />
     </Alert>
   );
 }
