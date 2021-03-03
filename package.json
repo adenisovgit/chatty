@@ -49,7 +49,7 @@
     "lodash": "^4.17.15",
     "point-of-view": "^3.7.1",
     "postcss-loader": "^3.0.0",
-    "pug": "^2.0.0",
+    "pug": "^3.0.1",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
